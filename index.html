@@ -12,6 +12,31 @@
         <div class="line__fix"></div>
         <div class="line__move"></div>
     </div>
+    <div class="fader">
+        <div>
+            <input type="range" id="freq" name="freq"
+                   min="0" max="127">
+            <label for="freq">Freq</label>
+        </div>
+          
+        <div>
+            <input type="range" id="gain" name="gain" 
+                   min="0" max="500">
+            <label for="gain">Gain</label>
+        </div>
+        <div>
+            <input type="range" id="freq2" name="freq2"
+                   min="0" max="500">
+            <label for="freq">Freq2</label>
+        </div>
+          
+        <div>
+            <input type="range" id="gain2" name="gain2" 
+                   min="0" max="500">
+            <label for="gain2">Gain2</label>
+        </div>
+    </div>
+    
     <canvas id="canvas__first" width="1000" height="1000"></canvas>
     <script src="audio.js" type="module"></script>
 </body>

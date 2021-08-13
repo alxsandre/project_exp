@@ -53,21 +53,19 @@ function scheduleNote(beatNumber, time) {
 
     if (lastNote.note === 0 || lastNote.note === 3) {
 
-        var modulator1 = new Modulator("sine", 110, 300);
+        var modulator1 = new Modulator("sine", freq, gain);
         var carrier1 = new Carrier("sine", 440);
         modulator1.gain.connect(carrier1.osc.frequency);
         carrier1.gain.connect(volume);
         circles.forEach(circle => circle.changeVel(0.5*(Math.random() - 0.5), 0.5*(Math.random() - 0.5)));
         circles.push(new Circle(document.getElementById('canvas__first').width / 2, document.getElementById('canvas__first').height / 2, 15, "rgb(15, 152, 10)"));
     
-        
-        
     }
 
     if (lastNote.note === 1 || lastNote.note === 2) {
 
-        var modulator2 = new Modulator("sine", 110, 10);
-        var carrier2 = new Carrier("sine", 220);
+        var modulator2 = new Modulator("sine", freq2, gain2);
+        var carrier2 = new Carrier("sine", 127);
         modulator2.gain.connect(carrier2.osc.frequency);
         carrier2.gain.connect(volume);
         circles.forEach(circle => circle.changeVel(0.5*(Math.random() - 0.5), 0.5*(Math.random() - 0.5)));
@@ -128,3 +126,16 @@ const pauseScroll = () => {
 }
 
 window.addEventListener('scroll', playScroll);
+
+
+//Values (freq, gain ...)
+let freq = 127;
+document.getElementById('freq').addEventListener('input', e => freq = e.target.value);
+let gain = 300;
+document.getElementById('gain').addEventListener('input', e => gain = e.target.value);
+
+let freq2 = 254;
+document.getElementById('freq2').addEventListener('input', e => freq2 = e.target.value);
+let gain2 = 500;
+document.getElementById('gain2').addEventListener('input', e => gain2 = e.target.value);
+

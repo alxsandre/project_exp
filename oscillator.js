@@ -15,7 +15,6 @@ export class Modulator {
     this.gain.gain.value = gain;
     this.osc.connect(this.gain);
     this.osc.start();
-
   }
 }
 
@@ -25,7 +24,7 @@ export class Carrier {
     this.osc.type = type;
     this.osc.frequency.value = freq;
     this.osc.start();
-    this.osc.stop(audioCtx.currentTime + 0.3);
+    this.osc.stop(audioCtx.currentTime + 2);
 
     this.gain = audioCtx.createGain();
     this.gain.gain.exponentialRampToValueAtTime(
